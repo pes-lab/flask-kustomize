@@ -1,0 +1,27 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: svc-app-flask
+  namespace: project
+  creationTimestamp: '2024-10-28T07:17:03Z'
+  labels:
+    app: svc-app-flask
+  annotations:
+    kubesphere.io/creator: admin
+spec:
+  ports:
+    - name: http-80
+      protocol: TCP
+      port: 80
+      targetPort: 8080
+  selector:
+    app: app-flask
+  clusterIP: 10.233.33.129
+  clusterIPs:
+    - 10.233.33.129
+  type: ClusterIP
+  sessionAffinity: None
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  internalTrafficPolicy: Cluster
